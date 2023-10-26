@@ -1,0 +1,29 @@
+.post-container {
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #e1e1e1;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	max-width: 400px;
+	margin: 20px auto;
+	text-align: left;
+	font-family: "Arial", sans-serif;
+	color: #333;
+}
+
+.post-item {
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.post-item-label {
+	flex: 1;
+	font-weight: bold;
+	color: #333;
+}
+
+.post-item-value {
+	flex: 3;
+	color: #666;
+}
