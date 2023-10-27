@@ -15,15 +15,26 @@ function App() {
 	console.log("");
 	return (
 		<>
-			<ul>
-				<li>
-					<Link to="/">Home</Link>
+			<ul className="links-container">
+				<li className="list-item">
+					<Link to="/" className="link">
+						Home
+					</Link>
 				</li>
-				<li>
-					<Link to="posts">Post List</Link>
+				<li className="list-item">
+					<Link to="posts" className="link">
+						Post List
+					</Link>
 				</li>
-				<li>
-					<Link to="post/2">Post 2</Link>
+				<li className="list-item">
+					<Link to="post/1" className="link">
+						Post 1
+					</Link>
+				</li>
+				<li className="list-item">
+					<Link to="post/2" className="link">
+						Post 2
+					</Link>
 				</li>
 			</ul>
 			<hr />
