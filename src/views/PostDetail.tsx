@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
-import { PostData } from "./PostList";
+import { PostData, UserData, CommentsData } from "../types/types";
 
 import "./Post.css";
 import { useEffect, useState } from "react";

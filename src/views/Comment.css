@@ -1,0 +1,14 @@
+.comment {
+	border: 1px solid #eee;
+	padding: 4px 8px;
+	font-size: 14px;
+}
+
+.comment-title {
+	margin: 0;
+	padding-bottom: 4px;
+}
+
+.comment-body {
+	margin: 0;
+}
