@@ -20,7 +20,8 @@
 
 .links-container {
 	display: flex;
-	width: 1000px;
+	max-width: 1000px;
+	width: auto;
 	list-style-type: none;
 	padding: 0;
 	margin: 0;

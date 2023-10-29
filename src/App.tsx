@@ -1,3 +1,4 @@
+import "normalize.css";
 import "./App.css";
 // react router
 import { Routes, Route, Link } from "react-router-dom";
