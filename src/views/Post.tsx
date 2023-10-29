@@ -17,24 +17,18 @@ export default function Post({ data }: PostProps) {
 			<div className="post-container">
 				<div className="post-item">
 					<Link to={`/post/${data.id}`}>
-						<h2>Post {id}</h2>
+						<h3 className="post-title">
+							<span className="post-item-label">{data.id}:</span>{" "}
+							{data.title}
+						</h3>
 					</Link>
 				</div>
 
 				<div className="post-item">
-					<div className="post-item-label">Title:</div>
-					<div className="post-item-value">{data.title}</div>
-				</div>
-				<div className="post-item">
-					<div className="post-item-label">ID:</div>
-					<div className="post-item-value">{data.id}</div>
-				</div>
-				<div className="post-item">
-					<div className="post-item-label">User ID:</div>
+					<div className="post-item-label">Author ID:</div>
 					<div className="post-item-value">{data.userId}</div>
 				</div>
 				<div className="post-item">
-					<div className="post-item-label">Body:</div>
 					<div className="post-item-value">{data.body}</div>
 				</div>
 			</div>

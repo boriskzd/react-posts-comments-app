@@ -5,6 +5,7 @@ import { PostData } from "./PostList";
 import "./Post.css";
 import { useEffect, useState } from "react";
 import { apiUrl } from "../utils/constants";
+// import Post from "./Post";
 
 interface PostProps {
 	data: PostData;
@@ -54,6 +55,7 @@ export default function PostDetail() {
 		<>
 			{data && (
 				<div className="post-container">
+					{/* <Post data={props}/> */}
 					<div className="post-item">
 						<Link to={`/post/${data.id}`}>
 							<h2>Post {id}</h2>

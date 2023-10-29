@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./PostList.css";
 
 import Post from "./Post";
 import { helloComponent } from "../utils/helloFunc";
@@ -51,8 +52,7 @@ export default function PostList() {
 	}
 
 	return (
-		<div>
-			<h1>Response Data:</h1>
+		<div className="post-list">
 			{data && data.length > 0 ? (
 				data.map((item) => <Post data={item} key={item.id} />)
 			) : (
