@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import "./PostList.css";
 
 import Post from "./Post";
 import { helloComponent } from "../utils/helloFunc";
 
 import { PostData, UserData, CommentsData } from "../types/types";
+import Search from "./Search/Search";
 
 export default function PostList() {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -12,10 +13,16 @@ export default function PostList() {
 	const componentName = "PostList";
 
 	const [postData, setPostData] = useState<PostData[] | null>(null);
-	const [userData, setUserData] = useState<UserData[] | null>(null); // Define UserData type
+	const [userData, setUserData] = useState<UserData[] | null>(null);
 	const [commentsData, setCommentsData] = useState<CommentsData[] | null>(
 		null
-	); // Define UserData type
+	);
+
+	const [searchText, setSearchText] = useState("");
+
+	function handleSearch(event: any): any {
+		setSearchText(event.target.value);
+	}
 
 	// helloComponent();
 
@@ -62,27 +69,56 @@ export default function PostList() {
 		return <div>Error {error.message}</div>;
 	}
 
-	console.log(userData);
+	const dataIsFetched =
+		postData &&
+		postData.length > 0 &&
+		userData &&
+		userData.length > 0 &&
+		commentsData &&
+		commentsData.length > 0;
+
+	let searchedUsers: UserData[] | null = userData;
+	if (searchText && userData) {
+		console.log(searchText);
+
+		searchedUsers = userData.filter((user) =>
+			user.username.includes(searchText)
+		);
+
+		console.log("searchedUsers");
+		console.log(searchedUsers);
+	}
+
+	const checkIt = (item: PostData) => {
+		let isUserMatching = false;
+		searchedUsers?.forEach((user) =>
+			user.id === item.userId ? (isUserMatching = true) : null
+		);
+		return isUserMatching;
+	};
 
 	return (
-		<div className="post-list">
-			{postData &&
-			postData.length > 0 &&
-			userData &&
-			userData.length > 0 &&
-			commentsData &&
-			commentsData.length > 0 ? (
-				postData.map((item) => (
-					<Post
-						data={item}
-						users={userData}
-						comments={commentsData}
-						key={item.id}
-					/>
-				))
-			) : (
-				<p>No Posts</p>
-			)}
-		</div>
+		<>
+			<Search handleSearch={handleSearch} searchText={searchText} />
+
+			<div className="post-list">
+				{dataIsFetched ? (
+					postData.map(
+						(item) =>
+							checkIt(item) && (
+								<Post
+									data={item}
+									users={userData}
+									comments={commentsData}
+									key={item.id}
+								/>
+							)
+					)
+				) : (
+					<p>No Posts</p>
+				)}
+			</div>
+			{console.warn("end")}
+		</>
 	);
 }

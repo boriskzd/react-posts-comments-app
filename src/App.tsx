@@ -9,7 +9,7 @@ import { helloComponent } from "./utils/helloFunc";
 
 function App() {
 	const propsMessage = "Hello from ";
-	const componentName = "App";
+	const componentName = "APP";
 
 	helloComponent(propsMessage, componentName);
 
